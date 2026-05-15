@@ -63,7 +63,7 @@ export function HomePage({ onOpenDeal }: Props) {
       </section>
 
       <footer className="max-w-300 mx-auto px-5 pb-10 pt-5 text-[0.6875rem] leading-[1.6] border-t border-border" style={{ color: 'oklch(36% 0.014 50)' }}>
-        Investments involve risk. Past performance is not indicative of future results. All opportunities are for accredited investors only under Reg D / 506(c). This is not an offer to sell or solicitation to buy securities. Deal Zone LLC does not provide financial, legal, or tax advice. Please review all offering documents before investing.
+        Investments involve risk. Past performance is not indicative of future results. All opportunities are for accredited investors only under Reg D / 506(c). This is not an offer to sell or solicitation to buy securities. Deal Room LLC does not provide financial, legal, or tax advice. Please review all offering documents before investing.
       </footer>
     </main>
   )

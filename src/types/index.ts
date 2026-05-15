@@ -41,6 +41,7 @@ export interface Deal {
   name: string
   location: string
   sub: string
+  image: string
   gradient: string
   daysLeft: number
   spotsLeft: number

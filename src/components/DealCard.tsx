@@ -1,7 +1,6 @@
 import type { Deal, StatusVariant } from '../types'
 import { CountdownTimer } from './CountdownTimer'
 import { ProgressBar } from './ProgressBar'
-import { CardSvgArt } from './CardSvgArt'
 
 const badgeCls: Record<StatusVariant, string> = {
   hot: 'text-danger border-[oklch(65%_0.18_28/0.35)]',
@@ -28,11 +27,14 @@ export function DealCard({ deal, onClick }: Props) {
     >
       {/* Image */}
       <div className="relative h-49 overflow-hidden shrink-0" aria-hidden="true">
-        <div className="absolute inset-0" style={{ background: deal.gradient }} />
-        <CardSvgArt id={deal.id} />
+        <img
+          src={deal.image}
+          alt=""
+          className="absolute inset-0 w-full h-full object-cover"
+        />
         <div
           className="absolute inset-0"
-          style={{ background: 'linear-gradient(to top, oklch(13% 0.018 50 / 0.82) 0%, transparent 55%)' }}
+          style={{ background: 'linear-gradient(to top, oklch(13% 0.018 50 / 0.88) 0%, oklch(13% 0.018 50 / 0.25) 60%, transparent 100%)' }}
         />
         <div className="absolute top-3 left-3 right-3 flex justify-between items-start">
           <span className="text-[0.5625rem] font-bold tracking-[0.09em] uppercase px-2.25 py-1 rounded-sm bg-[oklch(10%_0.02_50/0.75)] backdrop-blur-sm border text-accent border-[oklch(64%_0.16_35/0.35)]">

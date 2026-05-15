@@ -1,5 +1,14 @@
 import type { Deal } from '../types'
 
+import img0 from '../assets/253-hillcrest.jpeg'
+import img1 from '../assets/716-Charles.jpeg'
+import img2 from '../assets/church-deal.jpeg'
+import img3 from '../assets/brooklyn-building.jpeg'
+import img4 from '../assets/woodland.jpeg'
+import img5 from '../assets/superior-rd.jpeg'
+import img6 from '../assets/hotel-kaoba.jpeg'
+import img7 from '../assets/926-w-wayne.jpeg'
+
 export const DEALS: Deal[] = [
   // ─────────────────────────────────────────────────────────────
   // DEAL 1 — 253 Hillcrest Ave · Co-Living Conversion
@@ -10,6 +19,7 @@ export const DEALS: Deal[] = [
     name: '253 Hillcrest Ave',
     location: 'TBD',           // ❌ MISSING: city / state
     sub: '3/2 → 5-Room Co-Living · Renovation',
+    image: img0,
     gradient: 'linear-gradient(155deg,oklch(19% 0.04 40),oklch(27% 0.06 45),oklch(21% 0.05 38))',
     daysLeft: 14,              // ❌ MISSING: actual funding deadline
     spotsLeft: 1,              // ❌ MISSING: spots available
@@ -78,6 +88,7 @@ export const DEALS: Deal[] = [
     name: '716 N Charles St',
     location: 'Baltimore, MD',
     sub: '4/1 · Dual-Exit Strategy',
+    image: img1,
     gradient: 'linear-gradient(155deg,oklch(18% 0.03 35),oklch(26% 0.05 40),oklch(20% 0.04 32))',
     daysLeft: 10,              // ❌ MISSING: actual deadline
     spotsLeft: 2,              // ❌ MISSING
@@ -145,6 +156,7 @@ export const DEALS: Deal[] = [
     name: 'Canton Church Redevelopment',
     location: 'Canton, Baltimore MD', // ❌ CONFIRM: Canton neighborhood in Baltimore, or Canton OH?
     sub: 'Former Church · Daycare / Nonprofit Repositioning',
+    image: img2,
     gradient: 'linear-gradient(155deg,oklch(15% 0.03 240),oklch(22% 0.05 235),oklch(17% 0.04 245))',
     daysLeft: 21,              // ❌ MISSING
     spotsLeft: 3,              // ❌ MISSING
@@ -214,6 +226,7 @@ export const DEALS: Deal[] = [
     name: '685 Jefferson Ave',
     location: 'Brooklyn, NY',
     sub: 'Mixed-Use Building · STR Bridge + Co-Op Conversion',
+    image: img3,
     gradient: 'linear-gradient(155deg,oklch(13% 0.02 220),oklch(20% 0.04 215),oklch(15% 0.03 225))',
     daysLeft: 7,               // ❌ MISSING: actual deadline (PSA is next — urgent)
     spotsLeft: 1,              // 1 × 20% equity position available
@@ -285,6 +298,7 @@ export const DEALS: Deal[] = [
     name: '13309 S Woodland Rd',
     location: 'Cleveland, OH',
     sub: '17-Unit, 67-Room Walk-Up Apartment',
+    image: img4,
     gradient: 'linear-gradient(155deg,oklch(16% 0.03 55),oklch(24% 0.05 50),oklch(18% 0.04 58))',
     daysLeft: 21,              // ❌ MISSING: actual deadline
     spotsLeft: 5,              // ❌ MISSING
@@ -356,6 +370,7 @@ export const DEALS: Deal[] = [
     name: '14174 Superior Rd',
     location: 'Cleveland, OH',
     sub: '14-Unit, 49-Room Apartment Building',
+    image: img5,
     gradient: 'linear-gradient(155deg,oklch(15% 0.03 60),oklch(23% 0.05 55),oklch(17% 0.04 62))',
     daysLeft: 21,              // ❌ MISSING: actual deadline (same market / timeline as Deal 5)
     spotsLeft: 5,              // ❌ MISSING
@@ -424,6 +439,7 @@ export const DEALS: Deal[] = [
     name: 'Hotel Kaoba',
     location: 'Cabarete, Dominican Republic',
     sub: 'Boutique Hotel + Private Residency · El Kaoba Capital Circle™',
+    image: img6,
     gradient: 'linear-gradient(155deg,oklch(15% 0.04 185),oklch(22% 0.07 190),oklch(17% 0.05 180))',
     daysLeft: 30,              // ❌ MISSING: actual deadline (full offering forthcoming)
     spotsLeft: 10,             // ❌ MISSING
@@ -494,6 +510,7 @@ export const DEALS: Deal[] = [
     name: '926 W Wayne',
     location: 'TBD',           // ❌ MISSING: city / state
     sub: 'Single-Family · Dual Strategy · Decision Pending',
+    image: img7,
     gradient: 'linear-gradient(155deg,oklch(20% 0.04 42),oklch(28% 0.07 47),oklch(22% 0.05 40))',
     daysLeft: 14,              // ❌ MISSING: actual deadline
     spotsLeft: 2,              // ❌ MISSING

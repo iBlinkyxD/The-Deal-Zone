@@ -28,10 +28,10 @@ interface Props {
 
 function doAction(type: 'reserve' | 'breakdown' | 'schedule' | 'deposit', dealName: string) {
   const msgs = {
-    reserve:   `To reserve your spot in ${dealName}, email invest@dealzone.com with subject "Reserve — ${dealName}". We'll send you the subscription agreement within 24 hours.`,
-    breakdown: `Full offering documents for ${dealName} will be emailed within 24 hours. Email invest@dealzone.com with "Breakdown — ${dealName}" in the subject line.`,
-    schedule:  `To schedule a 30-minute investor call about ${dealName}, email invest@dealzone.com or visit our scheduling link.`,
-    deposit:   `To leave a soft deposit on ${dealName}, email invest@dealzone.com with "Deposit — ${dealName}" and your intended amount. No commitment until docs are signed.`,
+    reserve:   `To reserve your spot in ${dealName}, email invest@dealroom.com with subject "Reserve — ${dealName}". We'll send you the subscription agreement within 24 hours.`,
+    breakdown: `Full offering documents for ${dealName} will be emailed within 24 hours. Email invest@dealroom.com with "Breakdown — ${dealName}" in the subject line.`,
+    schedule:  `To schedule a 30-minute investor call about ${dealName}, email invest@dealroom.com or visit our scheduling link.`,
+    deposit:   `To leave a soft deposit on ${dealName}, email invest@dealroom.com with "Deposit — ${dealName}" and your intended amount. No commitment until docs are signed.`,
   }
   alert(msgs[type])
 }

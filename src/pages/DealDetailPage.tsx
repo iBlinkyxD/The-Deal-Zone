@@ -25,8 +25,8 @@ function SectionCard({ title, children }: { title: string; children: React.React
 export function DealDetailPage({ deal, onBack }: Props) {
   function doMobileAction(type: 'reserve' | 'schedule') {
     const msgs = {
-      reserve:  `To reserve your spot in ${deal.name}, email invest@dealzone.com with subject "Reserve — ${deal.name}".`,
-      schedule: `To schedule a 30-minute investor call about ${deal.name}, email invest@dealzone.com.`,
+      reserve:  `To reserve your spot in ${deal.name}, email invest@dealroom.com with subject "Reserve — ${deal.name}".`,
+      schedule: `To schedule a 30-minute investor call about ${deal.name}, email invest@dealroom.com.`,
     }
     alert(msgs[type])
   }
@@ -52,12 +52,16 @@ export function DealDetailPage({ deal, onBack }: Props) {
       <div className="max-w-300 mx-auto mt-4 px-5">
         <div
           className="h-65 sm:h-90 rounded-lg overflow-hidden relative flex items-end p-6"
-          style={{ background: deal.gradient }}
           aria-hidden="true"
         >
+          <img
+            src={deal.image}
+            alt=""
+            className="absolute inset-0 w-full h-full object-cover"
+          />
           <div
             className="absolute inset-0"
-            style={{ background: 'linear-gradient(to top, oklch(9% 0.02 50 / 0.9) 0%, transparent 58%)' }}
+            style={{ background: 'linear-gradient(to top, oklch(9% 0.02 50 / 0.92) 0%, oklch(9% 0.02 50 / 0.35) 55%, transparent 100%)' }}
           />
           <div className="relative z-10">
             <div className="text-[0.5625rem] tracking-widest uppercase font-bold text-accent mb-1.75">
@@ -128,7 +132,7 @@ export function DealDetailPage({ deal, onBack }: Props) {
 
       {/* Mobile CTA bar */}
       <div
-        className="fixed bottom-0 left-0 right-0 z-[100] flex gap-2.5 px-5 pt-3 pb-[calc(12px+env(safe-area-inset-bottom))] border-t border-border backdrop-blur-[18px] lg:hidden"
+        className="fixed bottom-0 left-0 right-0 z-100 flex gap-2.5 px-5 pt-3 pb-[calc(12px+env(safe-area-inset-bottom))] border-t border-border backdrop-blur-[18px] lg:hidden"
         style={{ background: 'oklch(13% 0.018 50 / 0.94)' }}
         role="complementary"
         aria-label="Quick actions"
