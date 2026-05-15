@@ -20,7 +20,7 @@ export function NavBar({ onLogoClick }: Props) {
             style={{ color: 'oklch(13% 0.018 50)' }}
             aria-hidden="true"
           >
-            DZ
+            DR
           </div>
           Deal Room
         </button>
