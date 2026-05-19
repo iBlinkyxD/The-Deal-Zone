@@ -24,19 +24,12 @@ const TRUST_ITEMS = [
 
 interface Props {
   deal: Deal
+  onReserve: () => void
+  onBreakdown: () => void
+  calendlyUrl: string
 }
 
-function doAction(type: 'reserve' | 'breakdown' | 'schedule' | 'deposit', dealName: string) {
-  const msgs = {
-    reserve:   `To reserve your spot in ${dealName}, email invest@dealroom.com with subject "Reserve — ${dealName}". We'll send you the subscription agreement within 24 hours.`,
-    breakdown: `Full offering documents for ${dealName} will be emailed within 24 hours. Email invest@dealroom.com with "Breakdown — ${dealName}" in the subject line.`,
-    schedule:  `To schedule a 30-minute investor call about ${dealName}, email invest@dealroom.com or visit our scheduling link.`,
-    deposit:   `To leave a soft deposit on ${dealName}, email invest@dealroom.com with "Deposit — ${dealName}" and your intended amount. No commitment until docs are signed.`,
-  }
-  alert(msgs[type])
-}
-
-export function ActionSidebar({ deal }: Props) {
+export function ActionSidebar({ deal, onReserve, onBreakdown, calendlyUrl }: Props) {
   const filledPct = Math.round(((deal.spotsTotal - deal.spotsLeft) / deal.spotsTotal) * 100)
 
   return (
@@ -76,27 +69,21 @@ export function ActionSidebar({ deal }: Props) {
         <button
           className="w-full py-3.25 border-none rounded-sm text-[0.9rem] font-semibold tracking-[0.01em] mb-2.25 bg-accent hover:bg-accent-hi hover:shadow-[0_0_20px_var(--color-accent-glo)] hover:-translate-y-px transition-all"
           style={{ color: 'oklch(12% 0.018 50)' }}
-          onClick={() => doAction('reserve', deal.name)}
+          onClick={onReserve}
         >
           Reserve My Spot →
         </button>
         <button
           className="w-full py-3.25 border border-border rounded-sm text-[0.9rem] font-semibold tracking-[0.01em] mb-2.25 bg-surface2 text-fg hover:border-border2 hover:bg-[oklch(25%_0.016_50)] transition-all"
-          onClick={() => doAction('breakdown', deal.name)}
+          onClick={onBreakdown}
         >
           Request Full Breakdown
         </button>
         <button
-          className="w-full py-3.25 border border-border rounded-sm text-[0.9rem] font-semibold tracking-[0.01em] mb-2.25 bg-surface2 text-fg hover:border-border2 hover:bg-[oklch(25%_0.016_50)] transition-all"
-          onClick={() => doAction('schedule', deal.name)}
+          className="w-full py-3.25 border border-border rounded-sm text-[0.9rem] font-semibold tracking-[0.01em] bg-surface2 text-fg hover:border-border2 hover:bg-[oklch(25%_0.016_50)] transition-all"
+          onClick={() => window.open(calendlyUrl, '_blank', 'noopener,noreferrer')}
         >
           Schedule Investor Call
-        </button>
-        <button
-          className="w-full py-3.25 border border-border rounded-sm text-[0.9rem] font-semibold tracking-[0.01em] bg-transparent text-muted hover:text-fg hover:border-border2 transition-all"
-          onClick={() => doAction('deposit', deal.name)}
-        >
-          Leave a Deposit
         </button>
 
         {/* Trust indicators */}

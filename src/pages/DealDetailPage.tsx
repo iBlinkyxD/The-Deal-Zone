@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import type { Deal } from '../types'
 import { StatsStrip } from '../components/StatsStrip'
 import { FinancialTable } from '../components/FinancialTable'
@@ -5,6 +6,10 @@ import { StructureGrid } from '../components/StructureGrid'
 import { Timeline } from '../components/Timeline'
 import { OperatorCard } from '../components/OperatorCard'
 import { ActionSidebar } from '../components/ActionSidebar'
+import { ReserveModal } from '../components/ReserveModal'
+import { BreakdownModal } from '../components/BreakdownModal'
+
+const CALENDLY_URL = import.meta.env.VITE_CALENDLY_URL as string
 
 interface Props {
   deal: Deal
@@ -23,13 +28,8 @@ function SectionCard({ title, children }: { title: string; children: React.React
 }
 
 export function DealDetailPage({ deal, onBack }: Props) {
-  function doMobileAction(type: 'reserve' | 'schedule') {
-    const msgs = {
-      reserve:  `To reserve your spot in ${deal.name}, email invest@dealroom.com with subject "Reserve — ${deal.name}".`,
-      schedule: `To schedule a 30-minute investor call about ${deal.name}, email invest@dealroom.com.`,
-    }
-    alert(msgs[type])
-  }
+  const [reserveOpen, setReserveOpen] = useState(false)
+  const [breakdownOpen, setBreakdownOpen] = useState(false)
 
   return (
     <div className="animate-pg-in">
@@ -126,7 +126,12 @@ export function DealDetailPage({ deal, onBack }: Props) {
 
         {/* Sidebar */}
         <aside className="hidden lg:block">
-          <ActionSidebar deal={deal} />
+          <ActionSidebar
+            deal={deal}
+            onReserve={() => setReserveOpen(true)}
+            onBreakdown={() => setBreakdownOpen(true)}
+            calendlyUrl={CALENDLY_URL}
+          />
         </aside>
       </div>
 
@@ -139,18 +144,22 @@ export function DealDetailPage({ deal, onBack }: Props) {
       >
         <button
           className="flex-1 py-3.5 border border-border rounded-sm text-[0.9375rem] font-bold bg-surface2 text-fg hover:bg-[oklch(25%_0.016_50)] transition-all"
-          onClick={() => doMobileAction('schedule')}
+          onClick={() => window.open(CALENDLY_URL, '_blank', 'noopener,noreferrer')}
         >
           Schedule Call
         </button>
         <button
           className="flex-1 py-3.5 border-none rounded-sm text-[0.9375rem] font-bold bg-accent hover:bg-accent-hi transition-all"
           style={{ color: 'oklch(12% 0.018 50)' }}
-          onClick={() => doMobileAction('reserve')}
+          onClick={() => setReserveOpen(true)}
         >
           Reserve Spot →
         </button>
       </div>
+
+      {/* Modals */}
+      {reserveOpen && <ReserveModal deal={deal} onClose={() => setReserveOpen(false)} />}
+      {breakdownOpen && <BreakdownModal deal={deal} onClose={() => setBreakdownOpen(false)} />}
     </div>
   )
 }
